@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forgeai"
+version = "1.0.0"
+description = "A local-model agent factory with grounding, generated evaluations, and targeted optimization"
+requires-python = ">=3.10"
+dependencies = ["pypdf>=5.0,<7"]
+
+[project.scripts]
+forgeai = "forgeai.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["forgeai*"]

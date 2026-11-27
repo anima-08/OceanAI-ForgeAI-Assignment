@@ -1,0 +1,7 @@
+Create a realistic synthetic document pack for a shore-staff HR policy assistant. Return only JSON mapping filenames to complete UTF-8 markdown content. Produce exactly these four files:
+- shore_staff_leave_policy.md
+- shore_staff_travel_policy.md
+- shore_staff_medical_cover.md
+- shore_staff_conduct_policy.md
+
+The policies must be internally consistent, detailed, and suitable for retrieval evaluation. Include numbered sections, eligibility, approval rules, limits, required documents, exceptions, and contact roles. Use invented but plausible values. Across the pack include facts that require combining two documents, clear out-of-scope topics such as legal advice and shore-leave employment contracts, and one deliberate ambiguous boundary case. Do not mention real companies or real people. The intended assistant serves shore staff, not office staff.

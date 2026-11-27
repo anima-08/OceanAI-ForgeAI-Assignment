@@ -1,0 +1,6 @@
+Create a realistic synthetic document pack for a ship-spares procurement assistant. Return only JSON mapping filenames to complete content. Produce exactly these three files:
+- spares_catalogue.csv: valid CSV with header sku,item,category,unit_price_usd,currency,stock_qty,lead_time_days,warehouse; include at least 12 marine spare rows with varied prices, stock, and lead times.
+- supplier_terms.md: markdown with supplier warranty, minimum order, payment terms, returns, and delivery rules.
+- freight_and_customs.md: markdown with freight bands by shipment weight, insurance percentage, customs documentation, hazardous-goods surcharge, and a worked example that combines catalogue price, quantity, freight, insurance, and customs fees.
+
+Use invented suppliers and values. Make the documents detailed enough for cross-document calculations. Include clear out-of-scope actions such as placing orders, approving payments, and legal interpretation. Do not mention real companies or real people. Return only JSON, with the CSV value as one escaped string containing newlines.

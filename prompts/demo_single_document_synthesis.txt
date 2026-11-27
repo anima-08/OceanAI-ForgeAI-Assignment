@@ -1,0 +1,13 @@
+Create one synthetic source document for a ForgeAI demonstration. Return only one JSON object:
+{{"filename": "exact filename", "content": "complete document content"}}
+
+Filename: {filename}
+Format: {format}
+Pack context: {context}
+Document requirements: {requirements}
+
+Rules:
+- Use invented but plausible facts; do not mention real companies or real people.
+- Make the document detailed, internally consistent, and suitable for retrieval and evaluation.
+- For CSV, return valid CSV text in the content string with real newlines escaped as JSON newlines.
+- Do not include commentary outside the JSON object.
