@@ -86,7 +86,8 @@ def main(argv: list[str] | None = None) -> int:
         client = OllamaClient(model=args.model or "llama3.2:latest", base_url=args.base_url)
         runner = AgentRunner(args.agent, client=client)
         if args.question:
-            print(json.dumps(runner.answer(args.question), indent=2, ensure_ascii=False))
+            result = runner.answer(args.question)
+            print(json.dumps({key: value for key, value in result.items() if key != "raw_response"}, indent=2, ensure_ascii=False))
             return 0
         print(f"Loaded {runner.agent.get('name')} v{runner.agent.get('version')}. Type 'exit' to quit.")
         while True:
