@@ -68,32 +68,38 @@ def _normalise_cases(
         if not isinstance(case, dict) or not case.get("question"):
             continue
         question = str(case["question"]).strip()
-        base_id = slugify(str(case.get("id") or f"{category}-{index}"))[:70]
+        case_category = str(case.get("category", category)).strip().lower()
+        if case_category not in {"answerable", "refusal", "edge"}:
+            case_category = category
+        base_id = slugify(str(case.get("id") or f"{case_category}-{index}"))[:70]
         case_id = base_id
         suffix = 2
         while case_id in existing_ids:
             case_id = f"{base_id}-{suffix}"
             suffix += 1
-        expected_behavior = str(case.get("expected_behavior", "answer" if category == "answerable" else "refuse"))
+        expected_behavior = str(case.get("expected_behavior", "answer" if case_category == "answerable" else "refuse"))
         if expected_behavior not in {"answer", "refuse", "clarify"}:
-            expected_behavior = "answer" if category == "answerable" else "refuse"
+            expected_behavior = "answer" if case_category == "answerable" else "refuse"
         sources = case.get("expected_sources") or []
         if isinstance(sources, str):
             sources = [sources]
         sources = [str(source) for source in sources if str(source) in names]
-        if expected_behavior == "answer" and not sources:
-            continue
         facts = case.get("expected_facts") or []
         if isinstance(facts, str):
             facts = [facts]
         facts = [str(fact).strip() for fact in facts if str(fact).strip()]
         if not facts:
             continue
-        if category in {"answerable", "edge"} and expected_behavior != "answer" and sources:
-            expected_behavior = "answer"
-        if category == "answerable" and not sources:
+        if case_category == "answerable" and expected_behavior != "answer":
+            case_category = "refusal" if expected_behavior == "refuse" else "edge"
+        if case_category == "answerable" and not sources:
             continue
-        if category == "refusal" and sources:
+        if case_category == "refusal":
+            if expected_behavior != "refuse":
+                continue
+            if sources:
+                continue
+        if case_category == "edge" and expected_behavior == "answer" and not sources:
             continue
         expected_text = "\n".join(
             document.text for document in documents if document.name in sources
@@ -102,7 +108,7 @@ def _normalise_cases(
         normalised.append(
             {
                 "id": case_id,
-                "category": category,
+                "category": case_category,
                 "question": question,
                 "expected_behavior": expected_behavior,
                 "expected_sources": sources,
@@ -267,7 +273,7 @@ def generate_eval_set(
             response = None
             error = str(exc)
         retry_record = None
-        minimum = 7 if category == "answerable" else 3
+        minimum = {"answerable": 7, "refusal": 0, "edge": 3}[category]
         if len(cases) < minimum:
             remaining = desired_counts[category] - len(cases)
             retry_instruction = (

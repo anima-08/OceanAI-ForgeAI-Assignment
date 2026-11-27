@@ -80,15 +80,16 @@ class CoreTests(unittest.TestCase):
         cases = _normalise_cases(
             {
                 "cases": [
-                    {"question": "Leave?", "expected_behavior": "refuse", "expected_sources": ["hr.md"], "expected_facts": ["20 days"]},
+                    {"id": "edge-clarify", "category": "edge", "question": "Which leave?", "expected_behavior": "clarify", "expected_sources": ["hr.md"], "expected_facts": ["Annual leave"]},
+                    {"id": "mislabeled", "category": "answerable", "question": "Legal advice?", "expected_behavior": "refuse", "expected_sources": ["hr.md"], "expected_facts": ["Refuse"]},
                 ]
             },
             "answerable",
             documents,
             set(),
         )
-        self.assertEqual(len(cases), 1)
-        self.assertEqual(cases[0]["expected_behavior"], "answer")
+        self.assertEqual([case["id"] for case in cases], ["edge-clarify"])
+        self.assertEqual(cases[0]["category"], "edge")
         refusal_cases = _normalise_cases(
             {
                 "cases": [
