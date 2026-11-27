@@ -1,0 +1,13 @@
+Create one synthetic source document for a ForgeAI demonstration. Return only one JSON object:
+{"filename": "exact filename", "content": "complete document content"}
+
+Filename: shore_staff_travel_policy.md
+Format: markdown
+Pack context: A synthetic HR policy pack for Blue Harbour Marine Services, limited to shore staff. Office staff are excluded. Keep cross-document terminology consistent.
+Document requirements: Include eligible travel, approval thresholds, per-diems by region, accommodation caps, receipt rules, reimbursement deadlines, and an emergency-travel exception.
+
+Rules:
+- Use invented but plausible facts; do not mention real companies or real people.
+- Make the document detailed, internally consistent, and suitable for retrieval and evaluation.
+- For CSV, return valid CSV text in the content string with real newlines escaped as JSON newlines.
+- Do not include commentary outside the JSON object.

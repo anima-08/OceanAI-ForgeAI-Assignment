@@ -1,0 +1,9 @@
+{
+  "model": "llama3.2:latest",
+  "template": "prompts/demo_single_document_synthesis.txt",
+  "files": [
+    "spares_catalogue.csv",
+    "supplier_terms.md",
+    "freight_and_customs.md"
+  ]
+}

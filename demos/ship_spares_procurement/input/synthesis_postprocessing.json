@@ -1,0 +1,14 @@
+{
+  "reason": "The local synthesis model repeatedly introduced formatting and arithmetic contradictions despite explicit prompts.",
+  "changes": [
+    {
+      "file": "docs/spares_catalogue.csv",
+      "change": "Removed currency symbols from unit_price_usd while preserving all generated rows and values."
+    },
+    {
+      "file": "docs/freight_and_customs.md",
+      "change": "Normalized the generated freight bands, formula, and examples so insurance, customs, freight, and surcharge arithmetic are internally consistent."
+    }
+  ],
+  "raw_model_outputs": "input/synthesis_evidence"
+}

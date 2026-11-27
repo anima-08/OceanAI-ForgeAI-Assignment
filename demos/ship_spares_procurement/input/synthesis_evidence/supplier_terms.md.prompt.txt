@@ -1,0 +1,13 @@
+Create one synthetic source document for a ForgeAI demonstration. Return only one JSON object:
+{"filename": "exact filename", "content": "complete document content"}
+
+Filename: supplier_terms.md
+Format: markdown
+Pack context: A synthetic marine spare-parts procurement pack for Blue Harbour Marine Services. It supports informational quoting and landed-cost estimates but never order placement or payment approval.
+Document requirements: Include warranty duration and exclusions, minimum order value, payment terms, returns/restocking, Incoterms, lead-time definition, and back-order rules. State that the assistant cannot place orders or approve payments.
+
+Rules:
+- Use invented but plausible facts; do not mention real companies or real people.
+- Make the document detailed, internally consistent, and suitable for retrieval and evaluation.
+- For CSV, return valid CSV text in the content string with real newlines escaped as JSON newlines.
+- Do not include commentary outside the JSON object.

@@ -1,0 +1,1 @@
+I need an assistant that answers HR policy questions for shore staff, including leave eligibility and approval, travel reimbursement, medical cover, and conduct rules. It must use only the supplied HR policies, cite the source document, and refuse legal advice, office-staff policy questions, and anything not covered by the policies.

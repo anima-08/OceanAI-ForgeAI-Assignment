@@ -1,0 +1,10 @@
+{
+  "model": "llama3.2:latest",
+  "template": "prompts/demo_single_document_synthesis.txt",
+  "files": [
+    "shore_staff_leave_policy.md",
+    "shore_staff_travel_policy.md",
+    "shore_staff_medical_cover.md",
+    "shore_staff_conduct_policy.md"
+  ]
+}

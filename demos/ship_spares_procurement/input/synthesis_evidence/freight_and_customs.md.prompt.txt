@@ -1,0 +1,13 @@
+Create one synthetic source document for a ForgeAI demonstration. Return only one JSON object:
+{"filename": "exact filename", "content": "complete document content"}
+
+Filename: freight_and_customs.md
+Format: markdown
+Pack context: A synthetic marine spare-parts procurement pack for Blue Harbour Marine Services.
+Document requirements: Define freight and insurance by weight: 0-100 kg $20/5%, 101-200 kg $30/10%, 201-300 kg $40/15%, 301-400 kg $50/20%, 401-500 kg $60/25%, 501+ kg $70/30%. Customs is 5% of merchandise value for standard shipments and 10% for expedited. Hazardous surcharge is 10% of merchandise value. Total landed cost = merchandise + insurance + freight + customs + hazardous surcharge. Include a consistent non-hazardous standard example: 10 units at $120 = $1200 merchandise, 400 kg freight $50, insurance 20% = $240, customs 5% = $60, total landed cost $1550.
+
+Rules:
+- Use invented but plausible facts; do not mention real companies or real people.
+- Make the document detailed, internally consistent, and suitable for retrieval and evaluation.
+- For CSV, return valid CSV text in the content string with real newlines escaped as JSON newlines.
+- Do not include commentary outside the JSON object.

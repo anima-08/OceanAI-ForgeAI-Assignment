@@ -1,0 +1,13 @@
+Create one synthetic source document for a ForgeAI demonstration. Return only one JSON object:
+{"filename": "exact filename", "content": "complete document content"}
+
+Filename: shore_staff_leave_policy.md
+Format: markdown
+Pack context: A synthetic HR policy pack for Blue Harbour Marine Services, limited to shore staff. Office staff are excluded.
+Document requirements: Include eligibility after 6 months, annual leave 20 days, sick leave 5 days, family leave 10 days, notice, approval, documentation, probation, carry-over, and appeals. State one consistent carry-over rule: up to 5 annual and 2 sick days may carry into the next year and must be used by March 31. Do not state that leave cannot carry over.
+
+Rules:
+- Use invented but plausible facts; do not mention real companies or real people.
+- Make the document detailed, internally consistent, and suitable for retrieval and evaluation.
+- For CSV, return valid CSV text in the content string with real newlines escaped as JSON newlines.
+- Do not include commentary outside the JSON object.

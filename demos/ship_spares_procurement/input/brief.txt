@@ -1,0 +1,1 @@
+I need an assistant for ship-spares procurement that searches the spare-parts catalogue, checks stock and lead times, calculates extended costs using supplier and freight terms, explains warranty and return rules, and cites the supporting documents. It must refuse to place orders, approve payments, promise delivery dates, or give legal advice.
