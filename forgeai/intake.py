@@ -50,13 +50,24 @@ def infer_capabilities(brief: str, requirements: dict[str, Any], documents: list
     has_csv = any(document.kind == "csv" for document in documents)
     if has_csv and re.search(r"\b(catalogue|catalog|csv|sku|stock|inventory|spare|part|price|lookup|search)\b", text):
         capabilities.append("csv_lookup")
-    if re.search(r"\b(calculate|calculation|compute|total|sum|cost|quote|estimate|percentage|percent|discount|tax|convert|arithmetic|multiply|divide)\b", text):
+    if re.search(
+        r"\b(calculat(?:e|es|ed|ing|ion)|comput(?:e|es|ed|ing|ation)|total(?:s)?|sum(?:s|med|ming)?|"
+        r"cost(?:s|ing)?|quot(?:e|es|ed|ing|ation)|estimat(?:e|es|ed|ing|ion)|percent(?:age)?|"
+        r"discount(?:s|ed|ing)?|tax(?:es|ing)?|convert(?:s|ed|ing)?|arithmetic|"
+        r"multipl(?:y|ies|ied|ying|ication)|divid(?:e|es|ed|ing|end|or))\b",
+        text,
+    ):
         capabilities.append("calculator")
     if re.search(r"\b(current date|today's date|today|what day is it|date now)\b", text):
         capabilities.append("current_date")
     if re.search(r"\b(weather|forecast|temperature|rainfall|rain|wind)\b", text):
         capabilities.append("public_weather")
     return capabilities
+
+
+def _topic_in_corpus(term: str, corpus: str) -> bool:
+    variants = {term, term[:-1] if term.endswith("s") else term + "s"}
+    return any(variant in corpus for variant in variants if len(variant) > 3)
 
 
 def deterministic_groundability(
@@ -72,7 +83,7 @@ def deterministic_groundability(
             term for term in re.findall(r"[a-zA-Z0-9]+", str(gap.get("request", "")).lower())
             if len(term) > 3 and term not in generic_terms
         ]
-        if gap.get("severity") == "blocking" and terms and any(term in corpus for term in terms):
+        if gap.get("severity") == "blocking" and terms and any(_topic_in_corpus(term, corpus) for term in terms):
             gaps.append(
                 {
                     **gap,
@@ -88,7 +99,7 @@ def deterministic_groundability(
             term for term in re.findall(r"[a-zA-Z0-9]+", topic.lower())
             if len(term) > 3 and term not in generic_terms
         ]
-        if terms and not any(term in corpus for term in terms):
+        if terms and not any(_topic_in_corpus(term, corpus) for term in terms):
             gaps.append(
                 {
                     "request": topic,

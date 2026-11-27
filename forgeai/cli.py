@@ -42,6 +42,7 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--interactive", action="store_true", help="Ask up to five clarifying questions")
     run.add_argument("--max-iterations", type=int, default=3, choices=range(0, 4))
     run.add_argument("--target-pass-rate", type=float, default=0.85)
+    run.add_argument("--eval-cases", type=int, default=24, help="Number of evaluation cases to generate (minimum 20)")
     run.add_argument("--no-llm-judge", action="store_true", help="Use deterministic judging only")
 
     chat = subparsers.add_parser("chat", help="Run any generated agent through the generic chat runner")
@@ -76,6 +77,7 @@ def main(argv: list[str] | None = None) -> int:
             interactive=args.interactive,
             max_iterations=args.max_iterations,
             target_pass_rate=args.target_pass_rate,
+            eval_cases=args.eval_cases,
             use_llm_judge=not args.no_llm_judge,
         )
         print(json.dumps({key: value for key, value in result.items() if key != "scorecards"}, indent=2))

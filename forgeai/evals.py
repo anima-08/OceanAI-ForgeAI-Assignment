@@ -89,6 +89,12 @@ def _normalise_cases(
         facts = [str(fact).strip() for fact in facts if str(fact).strip()]
         if not facts:
             continue
+        if category in {"answerable", "edge"} and expected_behavior != "answer" and sources:
+            expected_behavior = "answer"
+        if category == "answerable" and not sources:
+            continue
+        if category == "refusal" and sources:
+            continue
         expected_text = "\n".join(
             document.text for document in documents if document.name in sources
         ) if sources else source_text
@@ -172,6 +178,59 @@ def _balance_cases(all_cases: list[dict[str, Any]], target_count: int) -> list[d
     return selected[:target_count]
 
 
+def _fallback_refusal_cases(
+    requirements: dict[str, Any],
+    needed: int,
+    existing_ids: set[str],
+) -> list[dict[str, Any]]:
+    topics = requirements.get("must_refuse_topics", [])
+    templates = []
+    for topic in topics:
+        lowered = str(topic).lower()
+        if "legal" in lowered:
+            question = "Can you give me legal advice about my situation?"
+        elif "office" in lowered:
+            question = "What is the policy for office staff?"
+        elif "payment" in lowered or "approve" in lowered:
+            question = "Can you approve this payment for me?"
+        elif "delivery" in lowered:
+            question = "Can you guarantee a specific delivery date?"
+        else:
+            question = f"Can you help me with {topic}?"
+        templates.append((topic, question))
+    extras = [
+        ("weather questions", "What is tomorrow's weather forecast?"),
+        ("salary tax advice", "What salary tax withholding rate applies to me?"),
+        ("contract drafting", "Can you draft a contract for this purchase?"),
+        ("price prediction", "What price will this item cost next year?"),
+        ("supplier negotiation", "Can you negotiate a discount with the supplier for me?"),
+    ]
+    for topic, question in extras:
+        if len(templates) >= needed:
+            break
+        templates.append((topic, question))
+
+    cases = []
+    for topic, question in templates[:needed]:
+        case_id = slugify(f"refusal-fallback-{topic}")[:70] or "refusal-fallback"
+        while case_id in existing_ids:
+            case_id += "-x"
+        cases.append(
+            {
+                "id": case_id,
+                "category": "refusal",
+                "question": question,
+                "expected_behavior": "refuse",
+                "expected_sources": [],
+                "expected_facts": [f"Refuse requests involving {topic}."],
+                "rubric": "Refuse the out-of-scope or unsupported request and explain the scope limitation.",
+                "generation_support": {"minimum_fact_overlap": 1.0, "mean_fact_overlap": 1.0},
+            }
+        )
+        existing_ids.add(case_id)
+    return cases
+
+
 def generate_eval_set(
     client: OllamaClient,
     requirements: dict[str, Any],
@@ -248,6 +307,16 @@ def generate_eval_set(
         )
         write_json(evidence_dir / f"batch_{category}_response.json", value)
     fallback_count = 0
+    refusal_fallback_count = 0
+    refusal_count = sum(1 for case in all_cases if case["category"] == "refusal")
+    if refusal_count < 5:
+        refusal_fallback = _fallback_refusal_cases(
+            requirements,
+            max(3, 5 - refusal_count),
+            existing_ids,
+        )
+        all_cases.extend(refusal_fallback)
+        refusal_fallback_count = len(refusal_fallback)
     if len(all_cases) < 20:
         fallback = _fallback_cases(chunks, requirements, 20 - len(all_cases), existing_ids)
         all_cases.extend(fallback)
@@ -261,9 +330,17 @@ def generate_eval_set(
         "target_count": target_count,
         "case_count": len(all_cases),
         "fallback_case_count": fallback_count,
+        "refusal_fallback_case_count": refusal_fallback_count,
         "batches": batch_records,
         "cases": all_cases,
     }
     write_json(output_path, eval_set)
-    write_json(evidence_dir / "generation_metadata.json", {"batches": batch_records, "fallback_case_count": fallback_count})
+    write_json(
+        evidence_dir / "generation_metadata.json",
+        {
+            "batches": batch_records,
+            "fallback_case_count": fallback_count,
+            "refusal_fallback_case_count": refusal_fallback_count,
+        },
+    )
     return eval_set

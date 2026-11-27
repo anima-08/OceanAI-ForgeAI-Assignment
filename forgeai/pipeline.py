@@ -156,8 +156,11 @@ def run_factory(
     interactive: bool = False,
     max_iterations: int = 3,
     target_pass_rate: float = 0.85,
+    eval_cases: int = 24,
     use_llm_judge: bool = True,
 ) -> dict[str, Any]:
+    if eval_cases < 20:
+        raise ValueError("At least 20 evaluation cases are required")
     output_dir = Path(output_dir).resolve()
     source_documents = load_documents(docs_dir)
     _prepare_output(output_dir, source_documents)
@@ -188,6 +191,7 @@ def run_factory(
         "parameters": {
             "max_optimizer_iterations": max_iterations,
             "target_pass_rate": target_pass_rate,
+            "eval_cases": eval_cases,
             "use_llm_judge": use_llm_judge,
             "interactive": interactive,
         },
@@ -226,6 +230,7 @@ def run_factory(
         PROMPT_DIR / "eval_generation_prompt.txt",
         output_dir / "evals" / "generated_eval_set.json",
         output_dir / "evals" / "generation_evidence",
+        target_count=eval_cases,
     )
     print(f"Generated {eval_set['case_count']} evaluation cases", flush=True)
 

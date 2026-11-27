@@ -75,6 +75,32 @@ class CoreTests(unittest.TestCase):
         )
         self.assertEqual(cases, [])
 
+    def test_eval_normalisation_repairs_mislabelled_behaviour(self) -> None:
+        documents = [Document("hr.md", "hr.md", "Annual leave is 20 days.", "md", "x")]
+        cases = _normalise_cases(
+            {
+                "cases": [
+                    {"question": "Leave?", "expected_behavior": "refuse", "expected_sources": ["hr.md"], "expected_facts": ["20 days"]},
+                ]
+            },
+            "answerable",
+            documents,
+            set(),
+        )
+        self.assertEqual(len(cases), 1)
+        self.assertEqual(cases[0]["expected_behavior"], "answer")
+        refusal_cases = _normalise_cases(
+            {
+                "cases": [
+                    {"question": "Legal advice?", "expected_behavior": "refuse", "expected_sources": ["hr.md"], "expected_facts": ["Refuse"]},
+                ]
+            },
+            "refusal",
+            documents,
+            set(),
+        )
+        self.assertEqual(refusal_cases, [])
+
     def test_eval_selection_preserves_category_minimums(self) -> None:
         cases = [
             {"id": f"a{i}", "category": "answerable"} for i in range(20)
@@ -105,6 +131,13 @@ class CoreTests(unittest.TestCase):
             ["document_qa", "csv_lookup", "calculator"],
         )
 
+    def test_capability_audit_infers_calculator_from_inflected_verb(self) -> None:
+        documents = [Document("catalogue.csv", "catalogue.csv", "sku,price\nA,10", "csv", "x")]
+        self.assertEqual(
+            infer_capabilities("Searches the catalogue and calculates extended costs", {"scope": "procurement"}, documents),
+            ["document_qa", "csv_lookup", "calculator"],
+        )
+
     def test_deterministic_groundability_blocks_missing_topic(self) -> None:
         documents = [Document("hr.md", "hr.md", "Leave is 20 days.", "md", "x")]
         requirements = {"must_answer_topics": ["payroll tax withholding"]}
@@ -122,6 +155,12 @@ class CoreTests(unittest.TestCase):
         result = deterministic_groundability(requirements, documents, model_report)
         self.assertTrue(result["supported"])
         self.assertEqual(result["gaps"][0]["severity"], "warning")
+
+    def test_deterministic_groundability_accepts_plural_overlap(self) -> None:
+        documents = [Document("freight.md", "freight.md", "Total landed cost includes freight and customs.", "md", "x")]
+        requirements = {"must_answer_topics": ["extended costs"]}
+        result = deterministic_groundability(requirements, documents, {"supported": True, "gaps": []})
+        self.assertTrue(result["supported"])
 
     def test_targeted_patch_is_not_full_regeneration(self) -> None:
         agent = {"version": 1, "system_prompt": "Be grounded.", "knowledge": {"retrieval": {"top_k": 4, "min_score": 0.1}}}

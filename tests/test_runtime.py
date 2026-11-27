@@ -68,11 +68,13 @@ class RuntimeTests(unittest.TestCase):
 
     def test_batch_runner_returns_one_result_per_question(self) -> None:
         values = [
-            {"answer": "20 days", "citations": ["hr.md"], "confidence": 0.9, "refused": False},
-            {"answer": "20 days", "citations": ["hr.md"], "confidence": 0.9, "refused": False},
+            json.dumps({"answer": "20 days", "citations": ["hr.md"], "confidence": 0.9, "refused": False}),
+            json.dumps({"answer": "20 days", "citations": ["hr.md"], "confidence": 0.9, "refused": False}),
         ]
-        client = FakeClient([json.dumps(values)])
-        results = AgentRunner(self.root / "agent.json", client=client).answer_batch(["Leave?", "Annual leave?"])
+        client = FakeClient(values)
+        results = AgentRunner(self.root / "agent.json", client=client).answer_batch(
+            ["Leave?", "Annual leave?"], workers=1
+        )
         self.assertEqual(len(results), 2)
         self.assertTrue(all(not result["refused"] for result in results))
 
