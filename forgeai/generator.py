@@ -72,7 +72,10 @@ def _validate_agent(value: Any, documents: list[Document], requirements: dict[st
                 csv_name = next((name for name in sorted(document_names) if name.lower().endswith(".csv")), None)
             if not csv_name:
                 continue
-            config = {**config, "csv": csv_name}
+            config = {
+                "csv": csv_name,
+                "limit": max(1, min(_safe_int(config.get("limit", 10), 10), 25)),
+            }
         tools.append({"name": tool["name"], "config": config, "rationale": str(tool.get("rationale", ""))})
     for tool_name in sorted(allowed_tools):
         if any(tool["name"] == tool_name for tool in tools):

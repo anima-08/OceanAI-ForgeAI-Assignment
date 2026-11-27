@@ -59,6 +59,16 @@ class CoreTests(unittest.TestCase):
         agent = _validate_agent(value, documents, requirements)
         self.assertEqual(agent["tools"], [])
 
+    def test_agent_sanitizes_csv_tool_configuration(self) -> None:
+        documents = [Document("catalogue.csv", "catalogue.csv", "sku,price\nA,10", "csv", "x")]
+        requirements = {"name": "Procurement", "scope": "Search catalogue", "required_capabilities": ["document_qa", "csv_lookup"]}
+        agent = _validate_agent(
+            {"name": "Procurement", "tools": [{"name": "csv_lookup", "config": {"csv": "catalogue.csv", "limit": ""}}]},
+            documents,
+            requirements,
+        )
+        self.assertEqual(agent["tools"][0]["config"], {"csv": "catalogue.csv", "limit": 10})
+
     def test_agent_adds_required_tool_missing_from_model_output(self) -> None:
         documents = [Document("catalogue.csv", "catalogue.csv", "sku,price\nA,10", "csv", "x")]
         requirements = {"name": "Procurement", "scope": "Quote costs", "required_capabilities": ["document_qa", "calculator"]}
