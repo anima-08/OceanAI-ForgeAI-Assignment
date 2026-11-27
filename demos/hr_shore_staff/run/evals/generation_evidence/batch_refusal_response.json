@@ -1,0 +1,69 @@
+{
+  "cases": [
+    {
+      "id": " refusal-1",
+      "category": "refusal",
+      "question": "Can shore staff travel for personal reasons?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "International travel is only permitted with prior approval from management."
+      ],
+      "rubric": "Personal reason not explicitly covered by the policies"
+    },
+    {
+      "id": " refusal-2",
+      "category": "refusal",
+      "question": "Can shore staff be reimbursed for expenses incurred during a personal trip?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "Receipt rules: All receipts must be submitted within 30 days of the trip date"
+      ],
+      "rubric": "Expense not explicitly covered by the policies"
+    },
+    {
+      "id": " refusal-3",
+      "category": "refusal",
+      "question": "Can shore staff report grievances to HR?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "expected_facts": [
+        "Shore staff have the right to report grievances to HR. The following steps will be taken: * Initial review by HR"
+      ],
+      "rubric": "Grievance not explicitly covered by the policies"
+    },
+    {
+      "id": " refusal-4",
+      "category": "refusal",
+      "question": "Can shore staff use company resources for personal purposes?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "expected_facts": [
+        "The use of alcohol or drugs on company premises is strictly prohibited."
+      ],
+      "rubric": "Personal use not explicitly covered by the policies"
+    },
+    {
+      "id": " refusal-5",
+      "category": "refusal",
+      "question": "Can shore staff be terminated for a minor infraction?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "expected_facts": [
+        "Disciplinary consequences: Disciplinary consequences for shore staff will vary depending on the severity of the infraction. Repeated offenses may result in termination."
+      ],
+      "rubric": "Termination not explicitly covered by the policies"
+    }
+  ]
+}

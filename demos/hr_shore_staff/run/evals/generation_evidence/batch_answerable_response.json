@@ -1,0 +1,186 @@
+{
+  "cases": [
+    {
+      "id": "HR-Policy-Assistant-1",
+      "category": "answerable",
+      "question": "What is the waiting period for shore staff medical cover?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_medical_cover.md"
+      ],
+      "expected_facts": [
+        "The waiting period for shore staff medical cover is 30 days from the date of employment."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-2",
+      "category": "answerable",
+      "question": "How many annual leave days does a shore staff member accrue per year?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": [
+        "20 days per year."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-3",
+      "category": "refusal",
+      "question": "Can shore staff take leave for personal reasons?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": [
+        "Leave is only granted for specified purposes, such as annual leave or sick leave."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-4",
+      "category": "edge",
+      "question": "What happens if a shore staff member does not provide adequate notice for their leave?",
+      "expected_behavior": "clarify",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": [
+        "The policy requires a minimum of 2 weeks' notice for all types of leave."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-5",
+      "category": "answerable",
+      "question": "How many days of sick leave can a shore staff member carry over to the next year?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": [
+        "Up to 2 sick days may carry into the next year."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-6",
+      "category": "answerable",
+      "question": "What is the maximum amount of overnight stays allowed for shore staff?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "$500 per night."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-7",
+      "category": "refusal",
+      "question": "Can shore staff travel internationally without prior approval?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "International travel is only permitted with prior approval from management."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-8",
+      "category": "edge",
+      "question": "What happens if a shore staff member does not submit receipts for their trip within the required timeframe?",
+      "expected_behavior": "clarify",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "Receipts must be submitted within 30 days of the trip date."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-9",
+      "category": "answerable",
+      "question": "How many visits are allowed for general care under shore staff medical cover?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_medical_cover.md"
+      ],
+      "expected_facts": [
+        "2 visits per year."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-10",
+      "category": "answerable",
+      "question": "What is the purpose of the Shore Staff Conduct Policy?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "expected_facts": [
+        "To outline the expected conduct of shore staff and ensure a safe and respectful work environment."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-11",
+      "category": "refusal",
+      "question": "Can shore staff report grievances to anyone?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "expected_facts": [
+        "Grievances must be reported to HR."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-12",
+      "category": "edge",
+      "question": "What happens if a shore staff member is found guilty of misconduct?",
+      "expected_behavior": "clarify",
+      "expected_sources": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "expected_facts": [
+        "Disciplinary consequences may include termination."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-13",
+      "category": "answerable",
+      "question": "How many days of annual leave can a shore staff member carry over to the next year?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": [
+        "Up to 5 annual days may carry into the next year."
+      ],
+      "rubric": "Short pass/fail rubric"
+    },
+    {
+      "id": "HR-Policy-Assistant-14",
+      "category": "answerable",
+      "question": "What is the daily rate for shore staff in the Northeast region?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "$150."
+      ],
+      "rubric": "Short pass/fail rubric"
+    }
+  ]
+}

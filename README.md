@@ -76,6 +76,15 @@ Pass `--question "..."` for a single non-interactive answer.
 python -m unittest discover -s tests
 ```
 
+## Validate a completed run
+
+```bash
+python -m forgeai validate --run demos/hr_shore_staff/run
+python -m forgeai validate --run demos/ship_spares_procurement/run --expected-tools csv_lookup calculator
+```
+
+Validation checks the mandatory artifact set, evaluation category coverage, answerable grounding, tool allowlist, and the three-iteration optimizer limit.
+
 ## Demonstration status
 
 The two demo briefs, source documents, synthesis prompts, and raw synthesis responses are included. Complete end-to-end run folders are committed as they finish on the local machine; the factory and generic runner are already implemented and tested.

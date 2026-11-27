@@ -1,0 +1,22 @@
+{
+  "supported": true,
+  "gaps": [],
+  "evidence": [
+    {
+      "document": "shore_staff_conduct_policy.md",
+      "supports": "Safety Conduct"
+    },
+    {
+      "document": "shore_staff_leave_policy.md",
+      "supports": "Leave Eligibility"
+    },
+    {
+      "document": "shore_staff_medical_cover.md",
+      "supports": "Medical Cover"
+    },
+    {
+      "document": "shore_staff_travel_policy.md",
+      "supports": "Travel Reimbursement"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "HR Policy Assistant",
+  "version": 2,
+  "description": "Answer HR policy questions for shore staff, including leave eligibility and approval, travel reimbursement, medical cover, and conduct rules.",
+  "model": {
+    "provider": "ollama",
+    "name": "llama3.2:latest",
+    "temperature": 0.1
+  },
+  "system_prompt": "Answer HR policy questions for shore staff, including leave eligibility and approval, travel reimbursement, medical cover, and conduct rules.\n\nAnswer the user's actual question directly. Preserve qualifiers, exceptions, negation, units, eligibility, and approval conditions from the source; do not replace a specific question with a generic summary.",
+  "knowledge": {
+    "enabled": true,
+    "documents_dir": "knowledge",
+    "documents": [
+      "shore_staff_conduct_policy.md",
+      "shore_staff_leave_policy.md",
+      "shore_staff_medical_cover.md",
+      "shore_staff_travel_policy.md"
+    ],
+    "chunking": {
+      "strategy": "paragraph",
+      "chunk_size_words": 180,
+      "overlap_words": 30
+    },
+    "retrieval": {
+      "method": "bm25",
+      "top_k": 4,
+      "min_score": 0.0
+    }
+  },
+  "tools": [],
+  "output_contract": {
+    "format": "json",
+    "required_fields": [
+      "answer",
+      "citations",
+      "confidence",
+      "refused"
+    ],
+    "citation_rule": "cite exact source filenames for every factual answer",
+    "refusal_rule": "refuse out-of-scope or unsupported requests"
+  },
+  "scope": {
+    "must_answer_topics": [
+      "Leave eligibility",
+      "Travel reimbursement",
+      "Medical cover",
+      "Conduct rules"
+    ],
+    "must_refuse_topics": [
+      "Legal advice",
+      "Office-staff policy questions",
+      "Anything not covered by the policies"
+    ]
+  },
+  "optimization_history": [
+    {
+      "from_version": 1,
+      "to_version": 2,
+      "score_before": 0.6957,
+      "categories": [
+        "prompt_defect"
+      ],
+      "changes": [
+        {
+          "type": "system_prompt_patch",
+          "category": "prompt_defect",
+          "before_length": 141,
+          "after_length": 349,
+          "added_instruction": "Answer the user's actual question directly. Preserve qualifiers, exceptions, negation, units, eligibility, and approval conditions from the source; do not replace a specific question with a generic summary.",
+          "why": "Targeted correction for 7 prompt defect failure(s).",
+          "failure_ids": [
+            "hr-policy-assistant-3",
+            "hr-policy-assistant-4",
+            "hr-policy-assistant-8",
+            "answer-2",
+            "refusal-legal-advice",
+            "refusal-office-staff-policy",
+            "refusal-guarantee-approval"
+          ]
+        }
+      ]
+    }
+  ]
+}

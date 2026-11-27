@@ -1,0 +1,10 @@
+[
+  {
+    "id": "q1",
+    "question": "What is the waiting period for shore staff medical cover?",
+    "why": "To ensure accurate information on HR policies",
+    "default": "The waiting period for shore staff medical cover is 30 days from the date of employment.",
+    "answer": "Shore staff only; office staff are out of scope.",
+    "source": "requester"
+  }
+]

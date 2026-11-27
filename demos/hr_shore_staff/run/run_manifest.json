@@ -1,0 +1,52 @@
+{
+  "factory": "ForgeAI",
+  "factory_version": "1.0.0",
+  "started_at": "2026-11-27T03:56:26.927429+00:00",
+  "model": "llama3.2:latest",
+  "ollama_base_url": "http://127.0.0.1:11434",
+  "brief_source": "C:\\Users\\Anima Pandey\\Documents\\Qoder\\2026-11-27\\ffcd912b\\demos\\hr_shore_staff\\input\\brief.txt",
+  "brief_sha256": "6c4fb789a66e3857d97dd4079d89fa4b8ea7361461ee470450f3acd67ac6a242",
+  "documents": [
+    {
+      "name": "shore_staff_conduct_policy.md",
+      "sha256": "1154310549316448fd8d59a90f65761aece28c5f0cb3c7d5b6d7cc5d88658877",
+      "characters": 2114
+    },
+    {
+      "name": "shore_staff_leave_policy.md",
+      "sha256": "7df8d9b8b872d74e9a899b9753eae6559d748901f4ca88f43465ca0907ef9d2c",
+      "characters": 1726
+    },
+    {
+      "name": "shore_staff_medical_cover.md",
+      "sha256": "a7911cafb1c3d4c500af86543c922e115d29f701f51c96c8a6749dffead82e80",
+      "characters": 1782
+    },
+    {
+      "name": "shore_staff_travel_policy.md",
+      "sha256": "e11f10b80ec38120959836c1444b140cafdc9e7f00558da1e7119ba98b7baaa9",
+      "characters": 1373
+    }
+  ],
+  "prompts": {
+    "agent_generation_prompt.txt": "0225fcf30813a4f1e4cdab16e8d837b65c7931b8f34155076a9182a1994e2820",
+    "demo_hr_synthesis.txt": "af0a5b0568671e91592dbcef1ded3f4dc4e5fb28c64ccbd7c0aa86e084b39745",
+    "demo_procurement_synthesis.txt": "ebcc9e6ceeec2edaf30d7e64d8c89e13e507e2db4d134f5293ad2d92b1013588",
+    "demo_single_document_synthesis.txt": "b18395e29cbce07da1268434da42da4420e2f0943eec9822acded48273df8cb6",
+    "eval_generation_prompt.txt": "1cce68de35a2e78c0507533373d704740bd999cf68a51dc3ceda26f8a4c0cce6",
+    "intake_prompt.txt": "e9d245629b62d2cfc57893f06f73ad761a24ae913b1f0d979614304c1763cedd",
+    "judge_prompt.txt": "57675ee15c1bcf6cfa6c07cd25753c46ee28e969b44fba05c33ccf83bf5659f3"
+  },
+  "parameters": {
+    "max_optimizer_iterations": 3,
+    "target_pass_rate": 0.8,
+    "use_llm_judge": true,
+    "interactive": false
+  },
+  "status": "completed",
+  "completed_at": "2026-11-27T05:17:53.316392+00:00",
+  "final_agent": "final_agent.json",
+  "scorecard": "scorecards/all_scorecards.json",
+  "iterations": "iterations/all_iteration_logs.json",
+  "report": "report.md"
+}

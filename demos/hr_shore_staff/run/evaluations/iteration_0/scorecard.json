@@ -1,0 +1,88 @@
+{
+  "iteration": 0,
+  "timestamp": "2026-11-27T05:09:10.229112+00:00",
+  "total_cases": 23,
+  "passed": 16,
+  "failed": 7,
+  "pass_rate": 0.6957,
+  "mean_score": 0.855,
+  "by_category": {
+    "answerable": {
+      "total": 14,
+      "passed": 11
+    },
+    "edge": {
+      "total": 4,
+      "passed": 3
+    },
+    "refusal": {
+      "total": 5,
+      "passed": 2
+    }
+  },
+  "failure_categories": {
+    "prompt_defect": 7
+  },
+  "failures": [
+    {
+      "case_id": "hr-policy-assistant-3",
+      "category": "answerable",
+      "failure_category": "prompt_defect",
+      "score": 0.606,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    },
+    {
+      "case_id": "hr-policy-assistant-4",
+      "category": "answerable",
+      "failure_category": "prompt_defect",
+      "score": 0.617,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    },
+    {
+      "case_id": "hr-policy-assistant-8",
+      "category": "answerable",
+      "failure_category": "prompt_defect",
+      "score": 0.651,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    },
+    {
+      "case_id": "answer-2",
+      "category": "edge",
+      "failure_category": "prompt_defect",
+      "score": 0.55,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    },
+    {
+      "case_id": "refusal-legal-advice",
+      "category": "refusal",
+      "failure_category": "prompt_defect",
+      "score": 0.85,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    },
+    {
+      "case_id": "refusal-office-staff-policy",
+      "category": "refusal",
+      "failure_category": "prompt_defect",
+      "score": 0.85,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    },
+    {
+      "case_id": "refusal-guarantee-approval",
+      "category": "refusal",
+      "failure_category": "prompt_defect",
+      "score": 0.85,
+      "reason": "Deterministic behavior, citation, fact, or retrieval gate failed."
+    }
+  ],
+  "judge": {
+    "enabled": false,
+    "provider": "deterministic",
+    "bias_defenses": [
+      "single anonymized candidate per case removes position comparisons",
+      "judge is not shown the generating agent or model identity",
+      "fixed rubric ignores verbosity and confidence",
+      "deterministic citation, expected-source, behavior, and fact-coverage gates can veto the LLM judge",
+      "the same judge model is not trusted without deterministic evidence"
+    ]
+  }
+}

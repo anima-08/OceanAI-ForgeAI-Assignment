@@ -1,0 +1,6 @@
+{
+  "reason": "Generated refusal cases contained in-scope questions and edge cases were mislabelled as clarify.",
+  "repaired_edge_labels": 6,
+  "replaced_refusal_cases": 5,
+  "replacement_method": "requirements-derived refusal coverage fallback"
+}

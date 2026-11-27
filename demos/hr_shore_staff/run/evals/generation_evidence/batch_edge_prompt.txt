@@ -1,0 +1,150 @@
+You are ForgeAI's evaluation author. Create realistic test cases from the supplied requirements and source excerpts. Tests must be generated from the documents, not copied from a fixed benchmark.
+
+Return only JSON:
+{"cases": [CASE, ...]}
+
+Each CASE must have this exact shape:
+{
+  "id": "unique-id",
+  "category": "answerable|refusal|edge",
+  "question": "user question",
+  "expected_behavior": "answer|refuse|clarify",
+  "expected_sources": ["exact source filename"],
+  "expected_facts": ["specific fact or constraint that a correct answer must contain"],
+  "rubric": "short pass/fail rubric"
+}
+
+Batch instruction:
+Generate 5 edge cases. Include at least two ambiguous questions requiring clarification, two answers that require combining two documents, and one missing-data or boundary case.
+
+Requirements:
+{'name': 'HR Policy Assistant', 'scope': 'Answer HR policy questions for shore staff, including leave eligibility and approval, travel reimbursement, medical cover, and conduct rules.', 'audience': 'Shore staff and HR personnel', 'tone': 'Formal and informative', 'must_answer_topics': ['Leave eligibility', 'Travel reimbursement', 'Medical cover', 'Conduct rules'], 'must_refuse_topics': ['Legal advice', 'Office-staff policy questions', 'Anything not covered by the policies'], 'required_capabilities': ['document_qa'], 'success_criteria': ['Accurate and up-to-date information on HR policies'], 'clarifications': ['What is the waiting period for shore staff medical cover? Shore staff only; office staff are out of scope.']}
+
+Source excerpts:
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Shore Staff Conduct Policy
+TEXT: # Shore Staff Conduct Policy
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Purpose
+TEXT: ## Purpose This policy outlines the expected conduct of shore staff at Blue Harbour Marine Services, ensuring a safe and respectful work environment for all employees.
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Safety Conduct
+TEXT: ## Safety Conduct
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Shore staff are responsible for maintaining a safe working environment. This includes
+TEXT: Shore staff are responsible for maintaining a safe working environment. This includes: * Following established safety procedures and protocols * Reporting any hazards or incidents to their supervisor immediately * Participating in regular safety training and drills * Refraining from engaging in horseplay, pranks, or other behavior that may compromise safety
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Harassment Reporting
+TEXT: ## Harassment Reporting Blue Harbour Marine Services takes all allegations of harassment seriously. Shore staff are expected to report any incidents of harassment to HR immediately. The following steps will be taken: * Investigation by HR and/or management * Support for the affected employee * Disciplinary action against the perpetrator, up to and including termination
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Alcohol and Drug Rules
+TEXT: ## Alcohol and Drug Rules The use of alcohol or drugs on company premises is strictly prohibited. Shore staff are expected to: * Refrain from consuming alcohol or using illegal substances while on duty * Not bring alcohol or drugs onto company premises * Cooperate with any request for a drug test or breathalyzer test
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Grievance Steps
+TEXT: ## Grievance Steps
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Shore Staff Leave Policy
+TEXT: # Shore Staff Leave Policy
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Eligibility
+TEXT: ## Eligibility Shore staff are eligible for leave after completing 6 months of service.
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Annual Leave
+TEXT: ## Annual Leave * Duration: 20 days per year * Accrual rate: 2 days per month * Carry-over rule: Up to 5 annual days may carry into the next year and must be used by March 31st.
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Sick Leave
+TEXT: ## Sick Leave * Duration: 5 days per year * Accrual rate: 0.5 days per month * Carry-over rule: Up to 2 sick days may carry into the next year and must be used by March 31st.
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Family Leave
+TEXT: ## Family Leave * Duration: 10 days per year * Accrual rate: 1 day per month
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Notice Period
+TEXT: ## Notice Period * Minimum notice period: 2 weeks for all types of leave * Maximum notice period: 4 weeks for annual leave and family leave
+
+SOURCE: shore_staff_leave_policy.md
+SECTION: Approval Process
+TEXT: ## Approval Process * Managerial approval required for all leave requests * HR approval required for exceptional cases
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Shore Staff Medical Cover Policy
+TEXT: # Shore Staff Medical Cover Policy
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Eligibility Waiting Period
+TEXT: ## Eligibility Waiting Period The waiting period for shore staff medical cover is 30 days from the date of employment.
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Inpatient/Outpatient Limits
+TEXT: ## Inpatient/Outpatient Limits
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Inpatient limits are as follows
+TEXT: Inpatient limits are as follows: * General care: 2 visits per year * Specialist care: 1 visit per year
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Outpatient limits are as follows
+TEXT: Outpatient limits are as follows: * General care: 10 visits per year * Specialist care: 5 visits per year
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Dental/Vision Benefits
+TEXT: ## Dental/Vision Benefits Shore staff are eligible for dental and vision benefits. Dental benefits include routine cleanings, fillings, and extractions. Vision benefits include annual eye exams and glasses or contact lenses.
+
+SOURCE: shore_staff_medical_cover.md
+SECTION: Exclusions
+TEXT: ## Exclusions
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Shore Staff Travel Policy
+TEXT: # Shore Staff Travel Policy
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Eligible Travel
+TEXT: ## Eligible Travel Shore staff are eligible to travel for business purposes within the continental United States and Canada, excluding Alaska and Hawaii. International travel is only permitted with prior approval from management.
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Approval Thresholds
+TEXT: ## Approval Thresholds * Low-risk trips (less than 3 days): No approval required * Medium-risk trips (3-7 days): Managerial approval required * High-risk trips (more than 7 days): Director-level approval required
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Per-Diem Rates by Region
+TEXT: ## Per-Diem Rates by Region | Region | Daily Rate | Overnight Rate | | --- | --- | --- | | Northeast | $150 | $300 | | Southeast | $120 | $250 | | Midwest | $100 | $200 | | West Coast | $180 | $350 |
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Accommodation Caps
+TEXT: ## Accommodation Caps * Shore staff are limited to $500 per night for overnight stays
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Receipt Rules
+TEXT: ## Receipt Rules * All receipts must be submitted within 30 days of the trip date
+
+SOURCE: shore_staff_travel_policy.md
+SECTION: Reimbursement Deadlines
+TEXT: ## Reimbursement Deadlines * Reimbursements will be processed on a bi-weekly basis, with payments made by the 15th and 30th of each month
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Shore staff have the right to report grievances to HR. The following steps will be taken
+TEXT: Shore staff have the right to report grievances to HR. The following steps will be taken: * Initial review by HR * Investigation and support for the employee * Resolution of the issue, which may include disciplinary action against the perpetrator
+
+SOURCE: shore_staff_conduct_policy.md
+SECTION: Disciplinary Consequences
+TEXT: ## Disciplinary Consequences Disciplinary consequences for shore staff will vary depending on the severity of the infraction. Repeated offenses may result in termination.
+
+Rules:
+- Use exact filenames in expected_sources.
+- For answerable cases, expected_sources must contain the document(s) that ground the answer and expected_facts must be specific enough to check.
+- For refusal cases, expected_behavior must be refuse and expected_facts must describe why refusal is required.
+- For edge cases, include ambiguous wording, multi-document synthesis, negation, boundary conditions, or missing-data behavior. Use clarify when the question cannot be answered without another user detail.
+- Do not create facts that are absent from the excerpts.
+- Keep questions concise and independently understandable.

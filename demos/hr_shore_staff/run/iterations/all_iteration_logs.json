@@ -1,0 +1,48 @@
+[
+  {
+    "iteration": 0,
+    "type": "baseline",
+    "score_before": null,
+    "score_after": 0.6957,
+    "changes": [],
+    "failures_addressed": []
+  },
+  {
+    "iteration": 1,
+    "type": "targeted_patch",
+    "agent_version": 2,
+    "score_before": 0.6957,
+    "score_after": 0.8261,
+    "mean_score_before": 0.855,
+    "mean_score_after": 0.9016,
+    "changes": [
+      {
+        "type": "system_prompt_patch",
+        "category": "prompt_defect",
+        "before_length": 141,
+        "after_length": 349,
+        "added_instruction": "Answer the user's actual question directly. Preserve qualifiers, exceptions, negation, units, eligibility, and approval conditions from the source; do not replace a specific question with a generic summary.",
+        "why": "Targeted correction for 7 prompt defect failure(s).",
+        "failure_ids": [
+          "hr-policy-assistant-3",
+          "hr-policy-assistant-4",
+          "hr-policy-assistant-8",
+          "answer-2",
+          "refusal-legal-advice",
+          "refusal-office-staff-policy",
+          "refusal-guarantee-approval"
+        ]
+      }
+    ],
+    "failures_addressed": [
+      "hr-policy-assistant-3",
+      "hr-policy-assistant-4",
+      "hr-policy-assistant-8",
+      "answer-2",
+      "refusal-legal-advice",
+      "refusal-office-staff-policy",
+      "refusal-guarantee-approval"
+    ],
+    "new_failure_ids": []
+  }
+]

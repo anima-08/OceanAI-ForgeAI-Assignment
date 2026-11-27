@@ -1,0 +1,7 @@
+{
+  "q1": "Shore staff only; office staff are out of scope.",
+  "q2": "Use a concise, professional, plain-language tone.",
+  "q3": "Refuse legal advice, employment-contract interpretation, and any topic not covered by the supplied policies.",
+  "q4": "Every factual answer must cite the exact policy filename and include the relevant limits or approval conditions.",
+  "q5": "No external tools are needed; use document retrieval only."
+}

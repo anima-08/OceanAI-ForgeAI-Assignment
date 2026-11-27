@@ -1,0 +1,936 @@
+[
+  {
+    "case_id": "hr-policy-assistant-1",
+    "category": "answerable",
+    "question": "What is the waiting period for shore staff medical cover?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_medical_cover.md"
+    ],
+    "expected_facts": [
+      "The waiting period for shore staff medical cover is 30 days from the date of employment."
+    ],
+    "actual": {
+      "answer": "The waiting period for shore staff medical cover is 30 days from the date of employment.",
+      "citations": [
+        "shore_staff_medical_cover.md"
+      ],
+      "confidence": 0.85,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_medical_cover.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 129204,
+      "raw_response": "{\"answer\": \"The waiting period for shore staff medical cover is 30 days from the date of employment.\", \"citations\": [\"shore_staff_medical_cover.md\"], \"confidence\": 0.85, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-2",
+    "category": "answerable",
+    "question": "How many annual leave days does a shore staff member accrue per year?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_leave_policy.md"
+    ],
+    "expected_facts": [
+      "20 days per year."
+    ],
+    "actual": {
+      "answer": "A shore staff member accrues 20 annual leave days per year.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.9998,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 50954,
+      "raw_response": "{\"answer\": \"A shore staff member accrues 20 annual leave days per year.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.9998, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-3",
+    "category": "answerable",
+    "question": "Can shore staff take leave for personal reasons?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_leave_policy.md"
+    ],
+    "expected_facts": [
+      "Leave is only granted for specified purposes, such as annual leave or sick leave."
+    ],
+    "actual": {
+      "answer": "Shore staff are eligible for leave after completing 6 months of service, but those on probation may have limited leave options during their probationary period.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.9,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 106234,
+      "raw_response": "{\"answer\": \"Shore staff are eligible for leave after completing 6 months of service, but those on probation may have limited leave options during their probationary period.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.9, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.125,
+      "invalid_citations": [],
+      "deterministic_score": 0.606,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.606,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "hr-policy-assistant-4",
+    "category": "answerable",
+    "question": "What happens if a shore staff member does not provide adequate notice for their leave?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_leave_policy.md"
+    ],
+    "expected_facts": [
+      "The policy requires a minimum of 2 weeks' notice for all types of leave."
+    ],
+    "actual": {
+      "answer": "If a shore staff member does not provide adequate notice for their leave, they may be subject to disciplinary action in accordance with company policies and procedures, which can include deductions from pay or other penalties.",
+      "citations": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_conduct_policy.md"
+      ],
+      "confidence": 0.8,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 81859,
+      "raw_response": "{\"answer\": \"If a shore staff member does not provide adequate notice for their leave, they may be subject to disciplinary action in accordance with company policies and procedures, which can include deductions from pay or other penalties.\", \"citations\": [\"shore_staff_leave_policy.md\", \"shore_staff_conduct_policy.md\"], \"confidence\": 0.8, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.15,
+      "invalid_citations": [],
+      "deterministic_score": 0.617,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.617,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "hr-policy-assistant-5",
+    "category": "answerable",
+    "question": "How many days of sick leave can a shore staff member carry over to the next year?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_leave_policy.md"
+    ],
+    "expected_facts": [
+      "Up to 2 sick days may carry into the next year."
+    ],
+    "actual": {
+      "answer": "A shore staff member can carry up to 2 days of sick leave into the next year and must use them by March 31st.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.99,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 52390,
+      "raw_response": "{\"answer\": \"A shore staff member can carry up to 2 days of sick leave into the next year and must use them by March 31st.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.99, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.875,
+      "invalid_citations": [],
+      "deterministic_score": 0.944,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.944,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-6",
+    "category": "answerable",
+    "question": "What is the maximum amount of overnight stays allowed for shore staff?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_travel_policy.md"
+    ],
+    "expected_facts": [
+      "$500 per night."
+    ],
+    "actual": {
+      "answer": "Shore staff are limited to $500 per night for overnight stays",
+      "citations": [
+        "shore_staff_travel_policy.md"
+      ],
+      "confidence": 0.9998,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 24187,
+      "raw_response": "{\"answer\": \"Shore staff are limited to $500 per night for overnight stays\", \"citations\": [\"shore_staff_travel_policy.md\"], \"confidence\": 0.9998, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-7",
+    "category": "answerable",
+    "question": "Can shore staff travel internationally without prior approval?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_travel_policy.md"
+    ],
+    "expected_facts": [
+      "International travel is only permitted with prior approval from management."
+    ],
+    "actual": {
+      "answer": "Shore staff are eligible to travel internationally only with prior approval from management.",
+      "citations": [
+        "shore_staff_travel_policy.md"
+      ],
+      "confidence": 0.9333,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 102342,
+      "raw_response": "{\"answer\": \"Shore staff are eligible to travel internationally only with prior approval from management.\", \"citations\": [\"shore_staff_travel_policy.md\"], \"confidence\": 0.9333, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.714,
+      "invalid_citations": [],
+      "deterministic_score": 0.871,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.871,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-8",
+    "category": "answerable",
+    "question": "What happens if a shore staff member does not submit receipts for their trip within the required timeframe?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_travel_policy.md"
+    ],
+    "expected_facts": [
+      "Receipts must be submitted within 30 days of the trip date."
+    ],
+    "actual": {
+      "answer": "If a shore staff member does not submit receipts for their trip within the required timeframe, they may be subject to denial of future leave requests or reimbursement for approved expenses.",
+      "citations": [
+        "shore_staff_travel_policy.md"
+      ],
+      "confidence": 0.8,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 79765,
+      "raw_response": "{\"answer\": \"If a shore staff member does not submit receipts for their trip within the required timeframe, they may be subject to denial of future leave requests or reimbursement for approved expenses.\", \"citations\": [\"shore_staff_travel_policy.md\"], \"confidence\": 0.8, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.225,
+      "invalid_citations": [],
+      "deterministic_score": 0.651,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.651,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "hr-policy-assistant-9",
+    "category": "answerable",
+    "question": "How many visits are allowed for general care under shore staff medical cover?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_medical_cover.md"
+    ],
+    "expected_facts": [
+      "2 visits per year."
+    ],
+    "actual": {
+      "answer": "General care under shore staff medical cover is allowed for up to 10 visits per year.",
+      "citations": [
+        "shore_staff_medical_cover.md"
+      ],
+      "confidence": 0.9999,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_medical_cover.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 60577,
+      "raw_response": "{\"answer\": \"General care under shore staff medical cover is allowed for up to 10 visits per year.\", \"citations\": [\"shore_staff_medical_cover.md\"], \"confidence\": 0.9999, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.6,
+      "invalid_citations": [],
+      "deterministic_score": 0.82,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.82,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-10",
+    "category": "answerable",
+    "question": "What is the purpose of the Shore Staff Conduct Policy?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_conduct_policy.md"
+    ],
+    "expected_facts": [
+      "To outline the expected conduct of shore staff and ensure a safe and respectful work environment."
+    ],
+    "actual": {
+      "answer": "The purpose of the Shore Staff Conduct Policy is to outline the expected conduct of shore staff at Blue Harbour Marine Services, ensuring a safe and respectful work environment for all employees.",
+      "citations": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "confidence": 0.9999,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 19984,
+      "raw_response": "{\"answer\": \"The purpose of the Shore Staff Conduct Policy is to outline the expected conduct of shore staff at Blue Harbour Marine Services, ensuring a safe and respectful work environment for all employees.\", \"citations\": [\"shore_staff_conduct_policy.md\"], \"confidence\": 0.9999, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.9,
+      "invalid_citations": [],
+      "deterministic_score": 0.955,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.955,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-11",
+    "category": "answerable",
+    "question": "Can shore staff report grievances to anyone?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_conduct_policy.md"
+    ],
+    "expected_facts": [
+      "Grievances must be reported to HR."
+    ],
+    "actual": {
+      "answer": "Shore staff have the right to report grievances to HR, and are expected to report any incidents of harassment to HR immediately.",
+      "citations": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "confidence": 0.9994,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 41391,
+      "raw_response": "{\"answer\": \"Shore staff have the right to report grievances to HR, and are expected to report any incidents of harassment to HR immediately.\", \"citations\": [\"shore_staff_conduct_policy.md\"], \"confidence\": 0.9994, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.5,
+      "invalid_citations": [],
+      "deterministic_score": 0.775,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.775,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-12",
+    "category": "answerable",
+    "question": "What happens if a shore staff member is found guilty of misconduct?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_conduct_policy.md"
+    ],
+    "expected_facts": [
+      "Disciplinary consequences may include termination."
+    ],
+    "actual": {
+      "answer": "If a shore staff member is found guilty of misconduct, they may face disciplinary actions including verbal or written warnings, suspension, or termination, in accordance with company policies and procedures.",
+      "citations": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.9,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 84422,
+      "raw_response": "{\"answer\": \"If a shore staff member is found guilty of misconduct, they may face disciplinary actions including verbal or written warnings, suspension, or termination, in accordance with company policies and procedures.\", \"citations\": [\"shore_staff_conduct_policy.md\", \"shore_staff_leave_policy.md\"], \"confidence\": 0.9, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.6,
+      "invalid_citations": [],
+      "deterministic_score": 0.82,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.82,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "edge-1",
+    "category": "edge",
+    "question": "What is the waiting period for shore staff medical cover?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_medical_cover.md"
+    ],
+    "expected_facts": [
+      "30 days from the date of employment"
+    ],
+    "actual": {
+      "answer": "The waiting period for shore staff medical cover is 30 days from the date of employment.",
+      "citations": [
+        "shore_staff_medical_cover.md"
+      ],
+      "confidence": 0.85,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_medical_cover.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 39390,
+      "raw_response": "{\"answer\": \"The waiting period for shore staff medical cover is 30 days from the date of employment.\", \"citations\": [\"shore_staff_medical_cover.md\"], \"confidence\": 0.85, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "answer-2",
+    "category": "edge",
+    "question": "What is the duration of annual leave for shore staff?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_leave_policy.md"
+    ],
+    "expected_facts": [
+      "20 days per year"
+    ],
+    "actual": {
+      "answer": "Shore staff are eligible for annual leave after completing their probationary period, which is 6 months, and must provide a minimum notice period of 2 weeks.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.9,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 83969,
+      "raw_response": "{\"answer\": \"Shore staff are eligible for annual leave after completing their probationary period, which is 6 months, and must provide a minimum notice period of 2 weeks.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.9, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.0,
+      "invalid_citations": [],
+      "deterministic_score": 0.55,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.55,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "edge-3",
+    "category": "edge",
+    "question": "Can shore staff travel internationally without prior approval?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_travel_policy.md"
+    ],
+    "expected_facts": [
+      "No, international travel is only permitted with prior approval from management"
+    ],
+    "actual": {
+      "answer": "Shore staff are eligible to travel internationally only with prior approval from management.",
+      "citations": [
+        "shore_staff_travel_policy.md"
+      ],
+      "confidence": 0.9333,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20094,
+      "raw_response": "{\"answer\": \"Shore staff are eligible to travel internationally only with prior approval from management.\", \"citations\": [\"shore_staff_travel_policy.md\"], \"confidence\": 0.9333, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.625,
+      "invalid_citations": [],
+      "deterministic_score": 0.831,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.831,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-13",
+    "category": "answerable",
+    "question": "How many days of annual leave can a shore staff member carry over to the next year?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_leave_policy.md"
+    ],
+    "expected_facts": [
+      "Up to 5 annual days may carry into the next year."
+    ],
+    "actual": {
+      "answer": "A shore staff member can carry up to 5 annual days into the next year and must use them by March 31st.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.9999,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 63359,
+      "raw_response": "{\"answer\": \"A shore staff member can carry up to 5 annual days into the next year and must use them by March 31st.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.9999, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.875,
+      "invalid_citations": [],
+      "deterministic_score": 0.944,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.944,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "edge-4",
+    "category": "edge",
+    "question": "What are the per-diem rates for overnight stays in the Midwest region?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_travel_policy.md"
+    ],
+    "expected_facts": [
+      "$100 per night"
+    ],
+    "actual": {
+      "answer": "The per-diem rate for overnight stays in the Midwest region is $200, with an accommodation cap of $500 per night.",
+      "citations": [
+        "shore_staff_travel_policy.md"
+      ],
+      "confidence": 0.9981,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 63437,
+      "raw_response": "{\"answer\": \"The per-diem rate for overnight stays in the Midwest region is $200, with an accommodation cap of $500 per night.\", \"citations\": [\"shore_staff_travel_policy.md\"], \"confidence\": 0.9981, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 0.4,
+      "invalid_citations": [],
+      "deterministic_score": 0.73,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.73,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "hr-policy-assistant-14",
+    "category": "answerable",
+    "question": "What is the daily rate for shore staff in the Northeast region?",
+    "expected_behavior": "answer",
+    "expected_sources": [
+      "shore_staff_travel_policy.md"
+    ],
+    "expected_facts": [
+      "$150."
+    ],
+    "actual": {
+      "answer": "The daily rate for shore staff in the Northeast region is $150.",
+      "citations": [
+        "shore_staff_travel_policy.md"
+      ],
+      "confidence": 0.9999,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 19734,
+      "raw_response": "{\"answer\": \"The daily rate for shore staff in the Northeast region is $150.\", \"citations\": [\"shore_staff_travel_policy.md\"], \"confidence\": 0.9999, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "refusal-legal-advice",
+    "category": "refusal",
+    "question": "Can you give me legal advice about suing my manager?",
+    "expected_behavior": "refuse",
+    "expected_sources": [],
+    "expected_facts": [
+      "Refuse to provide legal advice."
+    ],
+    "actual": {
+      "answer": "You should consult with HR or management for specific guidance on how to report concerns about your manager, as the company's policies and procedures may provide additional information on the process for addressing misconduct.",
+      "citations": [
+        "shore_staff_conduct_policy.md"
+      ],
+      "confidence": 0.5,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 84890,
+      "raw_response": "{\"answer\": \"You should consult with HR or management for specific guidance on how to report concerns about your manager, as the company's policies and procedures may provide additional information on the process for addressing misconduct.\", \"citations\": [\"shore_staff_conduct_policy.md\"], \"confidence\": 0.5, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": false,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 0.85,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.85,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "refusal-office-staff-policy",
+    "category": "refusal",
+    "question": "What is the annual leave policy for office staff?",
+    "expected_behavior": "refuse",
+    "expected_sources": [],
+    "expected_facts": [
+      "Refuse office-staff policy questions."
+    ],
+    "actual": {
+      "answer": "Shore staff are eligible for annual leave after completing their probationary period, which is 6 months. The duration of annual leave is 20 days per year, with an accrual rate of 2 days per month.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.9,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 41640,
+      "raw_response": "{\"answer\": \"Shore staff are eligible for annual leave after completing their probationary period, which is 6 months. The duration of annual leave is 20 days per year, with an accrual rate of 2 days per month.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.9, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": false,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 0.85,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.85,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "refusal-guarantee-approval",
+    "category": "refusal",
+    "question": "Can you guarantee that my annual leave request will be approved?",
+    "expected_behavior": "refuse",
+    "expected_sources": [],
+    "expected_facts": [
+      "Refuse to guarantee approval."
+    ],
+    "actual": {
+      "answer": "No, we cannot guarantee that your annual leave request will be approved, as shore staff on probation are not eligible for annual leave during their first 6 months and must provide a minimum notice period of 2 weeks for all types of leave.",
+      "citations": [
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.8,
+      "refused": false,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 22890,
+      "raw_response": "{\"answer\": \"No, we cannot guarantee that your annual leave request will be approved, as shore staff on probation are not eligible for annual leave during their first 6 months and must provide a minimum notice period of 2 weeks for all types of leave.\", \"citations\": [\"shore_staff_leave_policy.md\"], \"confidence\": 0.8, \"refused\": false}"
+    },
+    "deterministic": {
+      "behavior_ok": false,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 0.85,
+      "hard_gate": false
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 0.85,
+    "passed": false,
+    "failure_category": "prompt_defect"
+  },
+  {
+    "case_id": "refusal-tax-advice",
+    "category": "refusal",
+    "question": "What salary tax withholding rate applies to me?",
+    "expected_behavior": "refuse",
+    "expected_sources": [],
+    "expected_facts": [
+      "Refuse unsupported tax questions."
+    ],
+    "actual": {
+      "answer": "The salary tax withholding rate is not specified in the provided policies, but the shore staff travel policy does provide per-diem rates by region.",
+      "citations": [
+        "shore_staff_travel_policy.md",
+        "shore_staff_leave_policy.md"
+      ],
+      "confidence": 0.0,
+      "refused": true,
+      "retrieved_sources": [
+        "shore_staff_leave_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 67187,
+      "raw_response": "{\"answer\": \"The salary tax withholding rate is not specified in the provided policies, but the shore staff travel policy does provide per-diem rates by region.\", \"citations\": [\"shore_staff_travel_policy.md\", \"shore_staff_leave_policy.md\"], \"confidence\": 0, \"refused\": true}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  },
+  {
+    "case_id": "refusal-unrelated-weather",
+    "category": "refusal",
+    "question": "What is tomorrow's weather forecast for Mumbai?",
+    "expected_behavior": "refuse",
+    "expected_sources": [],
+    "expected_facts": [
+      "Refuse unrelated weather questions."
+    ],
+    "actual": {
+      "answer": "Tomorrow's weather forecast is not available in the retrieved evidence.",
+      "citations": [
+        "shore_staff_travel_policy.md",
+        "shore_staff_conduct_policy.md"
+      ],
+      "confidence": 0.0,
+      "refused": true,
+      "retrieved_sources": [
+        "shore_staff_conduct_policy.md",
+        "shore_staff_travel_policy.md"
+      ],
+      "tool_calls": [],
+      "latency_ms": 43797,
+      "raw_response": "{\"answer\": \"Tomorrow's weather forecast is not available in the retrieved evidence.\", \"citations\": [\"shore_staff_travel_policy.md\", \"shore_staff_conduct_policy.md\"], \"confidence\": 0, \"refused\": true}"
+    },
+    "deterministic": {
+      "behavior_ok": true,
+      "citation_recall": 1.0,
+      "retrieval_hit": true,
+      "fact_coverage": 1.0,
+      "invalid_citations": [],
+      "deterministic_score": 1.0,
+      "hard_gate": true
+    },
+    "llm_judge": null,
+    "llm_score": null,
+    "score": 1.0,
+    "passed": true,
+    "failure_category": null
+  }
+]

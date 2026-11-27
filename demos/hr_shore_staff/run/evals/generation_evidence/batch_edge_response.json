@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "id": "edge-1",
+      "category": "edge",
+      "question": "What is the waiting period for shore staff medical cover?",
+      "expected_behavior": "clarify",
+      "expected_sources": [
+        "shore_staff_medical_cover.md"
+      ],
+      "expected_facts": [
+        "30 days from the date of employment"
+      ]
+    },
+    {
+      "id": "answer-2",
+      "category": "answerable",
+      "question": "What is the duration of annual leave for shore staff?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": [
+        "20 days per year"
+      ]
+    },
+    {
+      "id": "edge-3",
+      "category": "edge",
+      "question": "Can shore staff travel internationally without prior approval?",
+      "expected_behavior": "refuse",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": [
+        "No, international travel is only permitted with prior approval from management"
+      ]
+    },
+    {
+      "id": "edge-4",
+      "category": "edge",
+      "question": "What are the per-diem rates for overnight stays in the Midwest region?",
+      "expected_behavior": "answer",
+      "expected_sources": [
+        "shore_staff_travel_policy.md"
+      ],
+      "expected_facts": "$100 per night"
+    },
+    {
+      "id": "missing-5",
+      "category": "edge",
+      "question": "What is the maximum notice period for annual leave?",
+      "expected_behavior": "fail",
+      "expected_sources": [
+        "shore_staff_leave_policy.md"
+      ],
+      "expected_facts": null
+    }
+  ]
+}
