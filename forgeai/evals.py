@@ -146,6 +146,32 @@ def _fallback_cases(
     return cases
 
 
+def _balance_cases(all_cases: list[dict[str, Any]], target_count: int) -> list[dict[str, Any]]:
+    by_category: dict[str, list[dict[str, Any]]] = {}
+    for case in all_cases:
+        by_category.setdefault(str(case["category"]), []).append(case)
+
+    minimums = {"answerable": 12, "refusal": 3, "edge": 3}
+    selected: list[dict[str, Any]] = []
+    selected_ids: set[str] = set()
+    for category in minimums:
+        for case in by_category.get(category, [])[: minimums[category]]:
+            selected.append(case)
+            selected_ids.add(case["id"])
+
+    remaining = [list(by_category.get(category, [])[minimums[category] :]) for category in minimums]
+    category_index = 0
+    while len(selected) < target_count and any(remaining):
+        bucket = remaining[category_index % len(remaining)]
+        if bucket:
+            case = bucket.pop(0)
+            if case["id"] not in selected_ids:
+                selected.append(case)
+                selected_ids.add(case["id"])
+        category_index += 1
+    return selected[:target_count]
+
+
 def generate_eval_set(
     client: OllamaClient,
     requirements: dict[str, Any],
@@ -228,7 +254,7 @@ def generate_eval_set(
         fallback_count = len(fallback)
     if len(all_cases) < 20:
         raise RuntimeError(f"Could only generate {len(all_cases)} valid evaluation cases; at least 20 are required")
-    all_cases = all_cases[:target_count]
+    all_cases = _balance_cases(all_cases, target_count)
     eval_set = {
         "schema_version": "1.0",
         "generated_by": {"provider": "ollama", "model": client.model, "method": "document-grounded batched generation"},

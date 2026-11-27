@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 
 from forgeai.documents import Document, chunk_documents, load_documents
-from forgeai.evals import _normalise_cases
+from forgeai.evals import _balance_cases, _normalise_cases
 from forgeai.generator import _validate_agent
 from forgeai.intake import deterministic_groundability, infer_capabilities
 from forgeai.judge import deterministic_judge
@@ -74,6 +74,21 @@ class CoreTests(unittest.TestCase):
             set(),
         )
         self.assertEqual(cases, [])
+
+    def test_eval_selection_preserves_category_minimums(self) -> None:
+        cases = [
+            {"id": f"a{i}", "category": "answerable"} for i in range(20)
+        ] + [
+            {"id": f"r{i}", "category": "refusal"} for i in range(5)
+        ] + [
+            {"id": f"e{i}", "category": "edge"} for i in range(5)
+        ]
+        selected = _balance_cases(cases, 24)
+        counts = {category: sum(case["category"] == category for case in selected) for category in {"answerable", "refusal", "edge"}}
+        self.assertEqual(len(selected), 24)
+        self.assertGreaterEqual(counts["answerable"], 12)
+        self.assertGreaterEqual(counts["refusal"], 3)
+        self.assertGreaterEqual(counts["edge"], 3)
 
     def test_deterministic_judge_catches_wrong_refusal(self) -> None:
         case = {"expected_behavior": "answer", "expected_sources": ["hr.md"], "expected_facts": ["20 days"]}
